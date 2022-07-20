@@ -31,4 +31,19 @@ func main(){
 	}
 	fmt.Println("How many measurements are larger than the previous measurement?")
 	fmt.Println(increment)
+	// task 2
+	var sums []int
+	for i := range numbers[2:]{ 
+		sum := numbers[i] + numbers[i+1] + numbers[i +2]
+		sums = append(sums, sum)
+	}
+	var windows int
+	for i := range sums[1:]{
+		if sums[i] < sums[i+1]{
+			windows++
+		}
+	}
+
+	fmt.Println("Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?")
+	fmt.Println(windows)
 }
