@@ -45,18 +45,17 @@ func task1(file *os.File){
 }
 
 func task2(file *os.File){
-	var x, y, depth int
+	var aim, horizontal, depth int
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan(){
 		split := strings.Split(scanner.Text(), " ")
 		position,_ := strconv.Atoi(split[1])
 		switch split[0]{
-		case "up": y -= position
-		case "down": y += position
-		case "forward": x += position; depth = y*position
+		case "up": aim -= position
+		case "down": aim += position
+		case "forward": horizontal += position; depth += aim*position
 		}
 	}
 	fmt.Println("What do you get if you multiply your final horizontal position by your final depth?")
-	fmt.Println(x*depth)
-
+	fmt.Println(horizontal*depth)
 }
